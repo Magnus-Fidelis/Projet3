@@ -1,0 +1,72 @@
+@media (max-device-width: 576px)
+{
+    .titre_carte
+    {
+        margin-top: 25%;
+    }
+
+    .test {
+    position: relative;
+    font-size: 250%;
+    overflow: scroll;
+    height: 150%;
+
+h2
+{
+    font-size: 2em;
+}
+    }
+
+    ul{
+        li{
+            p{
+                margin-left: 5%;
+            }
+        }
+    }
+    
+    .organisation_menu{
+    
+    
+    margin-top: 30%;
+    
+        a{
+            margin: 0;
+            height: 27vh;
+            width: 45%;
+            margin-left: 5%;
+            margin-bottom: 10%;
+        }
+    }
+}
+
+
+@media (max-device-width: 1024px)
+{
+    .titre_carte
+    {
+        margin-top: 25%;
+    }
+
+    .test {
+    position: relative;
+font-size: 250%;
+overflow: scroll;
+height: 150%;
+
+h2
+{
+    font-size: 2em;
+}
+    }
+
+
+.test
+{
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%
+}
+
+
+}

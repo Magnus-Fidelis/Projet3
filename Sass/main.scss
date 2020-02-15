@@ -1,0 +1,172 @@
+@import "./reset.scss";
+@import "./variable.scss";
+@import "./menu.scss";
+
+
+@keyframes wiggle {
+
+  25% {
+      transform: translateX(2%);
+  }
+
+  75%{
+      transform: translateX(-2%);
+  }
+  
+}
+
+@keyframes pointlevés {
+  50%{
+    transform: translateY(-10%);
+  }
+
+  75% {
+    transform: translateY(0%);
+  }
+}
+
+.titre
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $police_header;
+    background-color: $color_background_theme;
+    color: $color_theme;
+    height: 16%;
+    font-size: 10em;
+    position: fixed; //Permet de faire en sorte que le header reste toujours présent sur l'écran 
+    top: 0;
+    width: 100%;
+  }
+
+.organisation_menu
+{
+  display: flex;
+  margin-top: 7%;
+  flex-wrap: wrap;
+  a{
+    margin: 10.42%;
+    width: 29%;
+    height: 90.74vh;
+    text-decoration: none;
+    color: inherit;
+
+  @for $i from 1 through 4{
+    .couleur_menu{ 
+    &#{$i}
+    {
+      background-color: nth($color_menu_background, $i);
+    }}}
+
+.musique
+{
+  font-size: 7em;
+  @include degrade(nth($couleur_debut, 1), nth($couleur_fin, 1));
+}
+    
+.spe {
+  color: #3c1218;
+  font-size: 2.5em;
+  font-family: nth($police_menu_titre, 1), sans-serif;
+}
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+
+      h4{ 
+        margin-top: 80px;
+        @for $i from 1 through 4{
+          &.menu{ 
+          &#{$i}
+          {
+            font-family: nth($police_menu, $i), sans-serif;
+            font-size: 6em;
+            color: nth($color_menu, $i);
+          }}}} 
+
+      h3{
+        @for $i from 1 through 4{
+          &.menu_titre{ 
+            &#{$i}
+            {
+              font-family: nth($police_menu_titre, $i), sans-serif;
+              font-size: 2.5em;
+              @include degrade (nth($couleur_debut,$i),nth($couleur_fin,$i));
+            }
+          }      
+
+        }
+      }
+}}}
+
+.prochainement
+{
+  width: 840px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  background-color: $color_background_theme;
+  margin: 0 auto 110px auto;
+  align-items: center;
+  color: $color_theme;
+  font-size: 5.2em;
+  border-radius: 25px;
+
+  @for $i from 1 through 3 {
+
+  .prochainement_animation#{$i}
+  {
+    animation: pointlevés 2000ms ease-in; 
+    animation-iteration-count: infinite;
+    animation-delay: 500ms * $i;
+  }
+}
+}
+
+.footer
+{
+  background-color: $color_background_theme;
+  color: $color_theme;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7%;
+  font-size: 3.5em;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  a
+  {
+    color: $color_theme;
+    text-decoration: none;
+
+  }
+    .gauchefooter
+    {
+      margin-left: 100px;
+      &:hover
+      {
+        animation: wiggle 300ms;
+        animation-iteration-count: 3;
+
+      }
+    }
+    .droitefooter
+    {
+      margin-right: 100px;
+      &:hover
+      {
+        animation: wiggle 300ms;
+        animation-iteration-count: 3;
+      }
+    }
+
+  
+}
+
+@import "./responsive.scss";

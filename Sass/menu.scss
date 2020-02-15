@@ -1,0 +1,279 @@
+.titre_carte
+{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    font-size: 5em;
+   @for $i from 1 through length($mapsdegrades)
+   {
+       &#{$i} {
+        @include degrade (nth($couleur_debut,$i),nth($couleur_fin,$i));
+       }
+   }
+ // Mettre en place les for etc pour différencier les titre carte selon le menu 
+}
+
+@keyframes transition
+{
+0%{
+
+    opacity: 1;
+}
+
+50%
+{
+    opacity: 0;
+    transform: scale(2);
+}
+100%{
+    transform: scale(0);
+    opacity: 0;
+}
+    
+}
+.spe 
+{
+        color: #3c1218;
+        font-size: 1em;
+        font-family: nth($police_menu_titre, 1), sans-serif;
+}
+
+@for $i from 1 through 4
+{ 
+.carte_intro#{$i}
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 10em;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: scale(1);
+    animation: transition 5000ms ease-in-out;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    background-color: nth($color_menu_background, $i);
+    text-align: center;
+
+    .menu#{$i}
+    { 
+          font-family: nth($police_menu, $i), sans-serif;
+          font-size: 1em;
+          color: nth($color_menu, $i);
+    }
+    .menu_titre#{$i}
+    {
+        @include degrade (nth($couleur_debut,$i),nth($couleur_fin,$i));
+        font-family: nth($police_menu_titre, $i), sans-serif;
+    }
+    
+}
+}
+
+@for $i from 1 through 4
+{
+    .background_menu#{$i}
+    {
+        background-color: nth($color_menu_carte, $i); //mise en place des backgrounds des cartes du menu
+
+    }
+
+    .police_menu_#{$i}
+    {
+                font-family: nth($police_menu, $i);
+    }        
+    
+}
+.test
+{ 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 8%;
+    width: 78%;
+    padding-bottom: 5%;
+    margin-left: 11%;
+    margin-right: 11%;
+    height: 100%;
+
+// boucle pour générer les couleurs et les classes à partir de la liste $couleur
+// exemple de génération: couleur_carteX--Y, si troisième place dans l'index
+// et seconde itération de j, alors on a couleur_carte3--2
+    @each $menu_color_list in $couleur
+    {
+        .couleur_carte#{index($couleur, $menu_color_list)}
+        {
+
+
+            @for $j from 1 through length($menu_color_list) //couleur du texte du menu
+            {
+                &--#{$j}
+                {
+                    color: nth($menu_color_list, $j);
+                }
+            }
+        }
+        
+        .titre_menu#{index($couleur, $menu_color_list)} //Soulignement des titres des menus quand on passe le curseur
+        {
+            @for $j from 1 through length($menu_color_list)
+            {
+                &--#{$j}
+                { 
+                    position: relative;
+                    &::after 
+                    {
+                        content: "";
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        border-bottom: 2px solid;
+                        transform: scale(0);
+                        transition: 1000ms ease-in-out;
+                        transform-origin: left;
+                        border-bottom-color: nth($menu_color_list, $j);
+                    }
+                    &:hover 
+                    {
+                        &::after
+                        {
+                        transform: scale(1);
+                        }
+                    } 
+                }
+            }
+        }
+    }
+
+    @each $color_list in $couleur_border
+    {
+        .border_menu#{index($couleur_border, $color_list)}
+        {
+         @for $j from 1 through length($color_list)
+         {
+             &--#{$j}
+             {
+                     fill: nth($color_list, $j);
+                     
+             }
+         }   
+        }
+    }
+    .border{
+        width: 100%;
+    }
+
+    h2
+    {
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        &.musique
+        {
+            font-size: 4em;
+            @include degrade(nth($couleur_debut, 1), nth($couleur_fin, 1));
+            margin-top: 4%;
+        }
+    }
+
+    section
+    { 
+       margin-top: 5%;
+       margin-bottom: 5%;
+        ul
+        {
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        li
+        {
+            font-weight: 300;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+        }
+        p
+        {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+}
+
+.footer2
+{
+    background-color: $color_background_theme;
+    color: $color_theme;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    font-size: 3.5em;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    a
+    {
+      color: $color_theme;
+      text-decoration: none;
+    }
+      .gauchefooter
+      {
+        margin-left: 100px;
+        &:hover
+        {
+          animation: wiggle 300ms;
+          animation-iteration-count: 3;
+        }
+      }
+      .droitefooter
+      {
+        margin-right: 100px;
+        &:hover
+        {
+          animation: wiggle 300ms;
+          animation-iteration-count: 3;
+        }
+      }
+}
+
+.titre2
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $police_header;
+    background-color: $color_background_theme;
+    color: $color_theme;
+    height: 10.18%;
+    font-size: 8em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+.titre_menu
+{
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    
+}

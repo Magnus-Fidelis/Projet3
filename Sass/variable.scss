@@ -1,0 +1,73 @@
+@import "./fontface.scss";
+
+$color_menu_background: #FCDFDB, #FFF5FE, #F9F9F9, #FDFFFD;
+$color_menu_carte: #FCDFDB, #FFF5FE, #F9F9F9, #FDFFFD;
+$color_menu: #3c1218, #c77412, #0887fb, #72bf56;
+
+$color_background_theme: #579C87;
+$color_theme: #FDCB46;
+
+$color--degrade1--1: #f15861 ; // couleur du dégradé de la note de musique
+$color--degrade1--2: #f78f6a; 
+
+$color--degrade2--1: #e38913 ; // couleur du dégradé du second menu 
+$color--degrade2--2: #8f5bfe; 
+
+$color--degrade3--1: #1449e5 ; // couleur du dégradé du troisième menu 
+$color--degrade3--2: #54a8f9; 
+
+$color--degrade4--1: #56a847 ; // couleur du dégradé du quatrième menu 
+$color--degrade4--2: #bfff7e; 
+
+$colorcarte1--1: #3d1319; $border1--1: #3d1319; 
+$colorcarte1--2: #3d1319; $border1--2: #3d1319; 
+$colorcarte1--3: #3d1319; $border1--3: #3d1319; 
+$colorcarte2--1: #c67412; $border2--1: #c67412; 
+$colorcarte2--2: #a56799; $border2--2: #a56799; 
+$colorcarte2--3: #6e4ccc; $border2--3: #6e4ccc; 
+$colorcarte3--1: #000000; $border3--1: #0228dd; 
+$colorcarte3--2: #000000; $border3--2: #0670f3; 
+$colorcarte3--3: #000000; $border3--3: #229df9; 
+$colorcarte4--1: #000001; $border4--1: url(#gradient-4);
+$colorcarte4--2: #000001; $border4--2: url(#gradient-4--2); 
+$colorcarte4--3: #000001; $border4--3: url(#gradient-4); 
+
+// Liste couleur pour menu
+$couleur:
+($colorcarte1--1 $colorcarte1--2 $colorcarte1--3),
+($colorcarte2--1, $colorcarte2--2, $colorcarte2--3),
+($colorcarte3--1, $colorcarte3--2, $colorcarte3--3),
+($colorcarte4--1, $colorcarte4--2, $colorcarte4--3);
+
+$couleur_border:
+($border1--1 $border1--2 $border1--3),
+($border2--1, $border2--2, $border2--3),
+($border3--1, $border3--2, $border3--3),
+($border4--1, $border4--2, $border4--3);
+
+$police_header: vistol, sans-serif; 
+$police_footer: Montserrat, sans-serif; 
+
+$police_menu: Segoeprintbold, priamosserial, segoeprintbold, segoeprintbold;
+$police_menu_titre: Devonshire, croissantone, dancing, Kaushan;
+
+$couleur_debut: ($color--degrade1--1, $color--degrade2--1, $color--degrade3--1, $color--degrade4--1 ); //liste couleur dégradés début
+$couleur_fin: ($color--degrade1--2, $color--degrade2--2, $color--degrade3--2, $color--degrade4--2 ); //liste couleur dégradés fin
+
+@mixin degrade ($couleur1, $couleur2)
+{
+    background: -webkit-gradient(linear, left top, right bottom, from($couleur1), to($couleur2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+$mapsdegrades : 
+(
+    degrades1: degrades1,
+    degrades2: degrades2,
+    degrades3: degrades3, 
+    degrades4: degrades4
+    
+);
+

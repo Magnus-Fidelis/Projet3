@@ -1,0 +1,14 @@
+{
+  "name": "projet-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch Sass/main.scss:Css/main.css",
+    "prefix": "postcss ./animation.css --use autoprefixer -d ./animationprefixed/",
+    "pug": "pug -w Pug -o Html"
+  },
+  "author": "Quentin.G",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}
